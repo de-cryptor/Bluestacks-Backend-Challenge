@@ -1,6 +1,7 @@
 from config import mongoClient
 SearchDB = mongoClient['SearchDB']
 
+# Log Manager Class and Methods used to save and fetch User Search History
 class LogManager:
     
     collection = None 
@@ -12,7 +13,8 @@ class LogManager:
             self.collection = SearchDB[collection]
         else:
             raise AttributeError("'collection' cannot be empty or None.")
-        
+    
+    # Save Search History 
     def save(self):
         # Document to be saved here
         if self.document is not None:
@@ -21,6 +23,8 @@ class LogManager:
         else:
             raise AttributeError("'None' cannot be created in mongo .")
     
+    
+    # Fetch last 5 searches from MongoDB having given keyword for author
     def get_recent(self,keyword,author):
         print(keyword)
         keyword = ".*{}.*".format(keyword)
