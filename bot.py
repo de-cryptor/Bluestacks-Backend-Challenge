@@ -1,6 +1,9 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
+GUILD = os.getenv('GUILD')
 import discord
-from config import TOKEN,GUILD
 from googlesearch import search
 from LogManager import LogManager
 from discord.ext import commands
