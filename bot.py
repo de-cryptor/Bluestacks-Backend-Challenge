@@ -28,7 +28,7 @@ async def on_member_join(member):
 async def google(ctx,*args):
     query = " ".join(args)
     await ctx.send("Searching on Google Please wait....")
-    timestamp = time.time()
+    timestamp = time.time() + 19800
     document = dict()
     collection = 'Recent'
     document['search'] = query  
